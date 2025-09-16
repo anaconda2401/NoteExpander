@@ -1,9 +1,3 @@
-# pip install google-generativeai pypdf python-docx gradio pymupdf pytesseract pillow
-#Using api from gloabal python folder
-
-import sys
-sys.path.append(r"D:\Python")  # make sure Python looks there
-import api_keys
 import google.generativeai as genai
 from docx import Document
 import gradio as gr
@@ -18,7 +12,7 @@ if os.path.exists(tesseract_path):
     pytesseract.pytesseract.tesseract_cmd = tesseract_path
 
 # 1. Configure Gemini API Key
-genai.configure(api_key=api_keys.get_google_gemini())
+genai.configure(api_key='Gemini-api-key')
 
 # 2. Choose model (Flash = faster, Pro = stronger but quota limited)
 model = genai.GenerativeModel("gemini-1.5-flash")
@@ -114,5 +108,4 @@ with gr.Blocks() as demo:
 # Run local server
 if __name__ == "__main__":
     demo.launch(server_name="127.0.0.1", server_port=7860)
-
 
